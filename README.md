@@ -1,57 +1,76 @@
-# MachinePulse AI — Industrial Sensor Anomaly Monitoring
+MachinePulse AI
 
-**A student-built data science prototype aligned with data preparation, machine learning, visualization, and model monitoring concepts.**
+Industrial Sensor Anomaly Detection and Monitoring
 
-## Problem
-Industrial equipment produces time-series readings such as temperature, vibration, pressure, and energy consumption. Unusual combinations can warrant investigation. This demo illustrates how anomaly detection can help surface readings for review.
+MachinePulse AI is an independent student project that demonstrates how machine learning can help identify unusual patterns in industrial sensor readings.
 
-## Features
-- CSV upload and required-column validation
-- Data cleaning and numeric conversion
-- Standardization and Isolation Forest anomaly detection
-- Sensor time-series chart with flagged points
-- Correlation matrix and severity summary
-- Alert table with simple, interpretable IQR-based evidence
-- Downloadable alert log
+The application provides an interactive dashboard for exploring sensor trends, detecting potential anomalies, examining sensor relationships, and reviewing explainable alerts.
 
-## Dataset
-`sample_sensor_data.csv` contains **synthetic demonstration readings**. Some values were intentionally perturbed to demonstrate anomaly detection. It is not real Siemens data or real factory telemetry.
+Features
 
-## Run locally
-```bash
+- Sensor monitoring: Visualize temperature, vibration, pressure, and energy readings.
+- Anomaly detection: Use the Isolation Forest machine-learning algorithm to flag unusual sensor patterns.
+- Interactive visualizations: Explore sensor trends and correlations through charts.
+- Alert severity: Review flagged readings grouped by severity.
+- Explainable alert log: Inspect anomaly scores and the sensor evidence associated with alerts.
+- CSV support: Load sample sensor data and download the alert log.
+
+Technology Stack
+
+- Python
+- Streamlit
+- Pandas
+- Scikit-learn
+- Plotly
+- NumPy
+
+Project Files
+
+- "app.py" — Main Streamlit application.
+- "requirements.txt" — Python package dependencies.
+- "sample_sensor_data.csv" — Sample sensor dataset.
+- ".gitignore" — Files excluded from version control.
+
+Installation and Usage
+
+1. Clone the repository
+
+git clone https://github.com/Sayandana-v/MachinePulse-AI.git
+cd MachinePulse-AI
+
+2. Create a virtual environment
+
 python -m venv .venv
-# Windows PowerShell:
-.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-streamlit run app.py
-```
 
-## GitHub quick start
-1. Create a new public or private repository named `machinepulse-ai`.
-2. Upload `app.py`, `requirements.txt`, `sample_sensor_data.csv`, and this `README.md`.
-3. To run locally, follow the instructions above. For a hosted demo, use Streamlit Community Cloud and select `app.py` as the entry point.
+Activate it on Windows PowerShell:
 
-## Suggested screenshots for the report
-1. Main dashboard with metric cards
-2. Sensor trend with flagged anomalies
-3. Correlation matrix
-4. Explainable alert log
-5. CSV download and testing examples
+.\.venv\Scripts\Activate.ps1
 
-Only include screenshots from your own running implementation.
+3. Install dependencies
 
-## Method
-- Validate expected columns and convert timestamps/numeric fields
-- Drop rows missing required values
-- Standardize the four sensor features
-- Fit an Isolation Forest model
-- Add IQR-based evidence for readings outside robust bounds
+python -m pip install -r requirements.txt
 
-## Limitations
-- Synthetic data only; results are illustrative
-- No validated fault labels, so accuracy/recall are not claimed
-- The model is fitted on the uploaded dataset for demonstration
-- Alerts are not equipment diagnoses and must not be used for safety decisions
+4. Run the application
 
-## Attribution and academic honesty
-This is a starter implementation for an independent student project. If you reuse or adapt third-party code or datasets, review their licenses and acknowledge the original sources. Do not describe this as a project assigned by Siemens/EduSkills unless it actually was. The topic is aligned with general data science concepts (data engineering/preparation, machine learning, and monitoring), not an official Siemens project.
+python -m streamlit run app.py
+
+Open the local URL displayed in the terminal, usually "http://localhost:8501".
+
+How It Works
+
+1. Sensor readings are loaded from a CSV file.
+2. The application prepares the sensor data for analysis.
+3. An Isolation Forest model identifies readings that differ from typical patterns.
+4. The dashboard presents trends, flagged anomalies, severity summaries, and alert evidence.
+
+Project Status
+
+Status: Student prototype.
+
+This project uses synthetic demonstration data and is not connected to live factory equipment. Its alerts are intended for educational demonstration, not as a substitute for industrial safety systems or professional engineering assessments.
+
+Author
+
+Sayandana V
+
+GitHub: "Sayandana-v" (https://github.com/Sayandana-v)
